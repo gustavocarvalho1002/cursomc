@@ -24,15 +24,7 @@ public class CategoriaResource {
 	//Método de busca por ID
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		//Categoria obj = service.buscar(id);
-		//return ResponseEntity.ok().body(obj);
-		
-		try {
-			Categoria obj = service.buscar(id);
-			return ResponseEntity.ok().body(obj);
-	    } catch (ObjectNotFoundException ex) {
-	        throw new ResponseStatusException(
-	          HttpStatus.NOT_FOUND, "Registro inexistente", ex);
-	    }
+		Categoria obj = service.buscar(id);
+		return ResponseEntity.ok().body(obj);
 	}
 }
